@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $("select").niceSelect();
+  // $("select").niceSelect();
 
   $(".header__burger").on("click", function (evt) {
     let $this = $(this);
