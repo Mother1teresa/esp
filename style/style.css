@@ -1144,7 +1144,7 @@ html.modal {
   right: 47%;
   display: flex;
   align-items: flex-end;
-  gap: 1.5rem;
+  gap: .5rem;
   color: #274497;
 }
 .c-line{
@@ -1153,7 +1153,7 @@ html.modal {
   right: 24%;
   display: flex;
   align-items: flex-end;
-  gap: 1.5rem;
+  gap: .5rem;
   color: #274497;
 }
 .n-lea{
@@ -1166,7 +1166,7 @@ html.modal {
   right: 31.5%;
   display: flex;
   align-items: flex-end;
-  gap: 1.5rem;
+  gap: .5rem;
   color: #274497;
 }
 .n-line .e-title{
@@ -1177,7 +1177,7 @@ html.modal {
   font-weight: 700;
   font-size: 26rem;
   leading-trim: Cap height;
-  line-height: 60%;
+  line-height: 72%;
   letter-spacing: 0%;
   text-transform: uppercase;
 }
@@ -1185,7 +1185,7 @@ html.modal {
   font-family: "Cochineal";
   font-weight: 400;
   font-size: 10rem;
-  line-height: 90%;
+  line-height: 79%;
   letter-spacing: 0%;
 }
 .ball-bottom{
@@ -1333,7 +1333,7 @@ html.modal {
 .baner-content__right {
   display: grid;
   gap: 19rem;
-  width: 43rem;
+  width: 44rem;
 }
 .baner-content__right-block {
   display: grid;
@@ -1343,6 +1343,7 @@ html.modal {
   font-weight: 700 !important;
   color: #274497;
   line-height: 90% !important;
+  font-size: 3.5rem !important;
 }
 .baner-content__right-text {
   font-size: 2.4rem;
@@ -1796,7 +1797,7 @@ html.modal {
     gap: 4rem;
   }
   .baner-content__right-title{
-    width: 81% !important; 
+    width: 100% !important; 
     font-weight: 400 !important; 
     font-size: 5.6rem !important;
   }
@@ -1818,7 +1819,6 @@ html.modal {
     position: static;
     padding-left: 1.5rem;
     gap: 0;
-    display: flex;
   }
   .e-title,.e-line__text{
     font-size: 12.8rem;
@@ -1826,16 +1826,24 @@ html.modal {
     line-height: 90%;
   }
   .n-lea{
-    display: none;
+    width: 15%;
+    height: 85%;
+    margin-bottom: .8rem;
   }
   .n-line .e-title{
-    display: flex;
+    display: none;
   }
   .ball-split{
     width: 56rem;
     height: 66rem;
     margin: auto;
     margin-top: 1rem;
+  }
+  .ball-split:hover .split-container .top-half {
+    transform: translateY(-25rem);
+  }
+  .ball-split:hover .split-container .bottom-half {
+    transform: translateY(29.4rem);
   }
 }
 .areas .container {
