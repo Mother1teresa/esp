@@ -1269,7 +1269,7 @@ html.modal {
  
 .rotating-target {
   transform-origin: 319.232px 334.463px;
-  transition: transform 1s ease-in-out;
+  transition: transform 3s ease-in-out;
 }
 
 .ball-split.hovering .rotating-target {
