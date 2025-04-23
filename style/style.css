@@ -1236,13 +1236,46 @@ html.modal {
   width: 62rem;
   height: 62rem;
 }
-
 .ball-split:hover .split-container .top-half {
-  transform: translateY(-15rem);
+  transform: translateY(-16rem);
 }
 .ball-split:hover .split-container .bottom-half {
-  transform: translateY(19.4rem);
+  transform: translateY(19.8rem);
 }
+@media (min-width:120em) {
+.ball-split:hover .split-container .top-half {
+  transform: translateY(-8rem);
+}
+.ball-split:hover .split-container .bottom-half {
+  transform: translateY(11rem);
+}
+}
+@media (max-width:94em) {
+  .ball-split:hover .split-container .top-half {
+    transform: translateY(-20rem);
+  }
+  .ball-split:hover .split-container .bottom-half {
+    transform: translateY(26.4rem);
+  }
+}
+/* @media (min-width:64em) {
+  .ball-split:hover .split-container .top-half {
+    transform: translateY(-20rem);
+  }
+  .ball-split:hover .split-container .bottom-half {
+    transform: translateY(24.4rem);
+  }
+} */
+ 
+.rotating-target {
+  transform-origin: 319.232px 334.463px;
+  transition: transform 1s ease-in-out;
+}
+
+.ball-split.hovering .rotating-target {
+  animation: none; 
+}
+
 .top-half,
 .bottom-half {
   transition: transform 1s ease;
@@ -1840,10 +1873,18 @@ html.modal {
     margin-top: 1rem;
   }
   .ball-split:hover .split-container .top-half {
-    transform: translateY(-25rem);
+    transform: translateY(-13rem);
   }
   .ball-split:hover .split-container .bottom-half {
-    transform: translateY(29.4rem);
+    transform: translateY(16.4rem);
+  }
+}
+@media (max-width:45em) {
+  .ball-split:hover .split-container .top-half {
+    transform: translateY(-22rem);
+  }
+  .ball-split:hover .split-container .bottom-half {
+    transform: translateY(30.4rem);
   }
 }
 .areas .container {
