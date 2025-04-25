@@ -2376,11 +2376,12 @@ canvas {
     transform: translate(-9rem, 6rem);
   }
 }
+
 @media (max-width: 48em) {
   canvas{
     width: 70rem !important;
     height: 69rem !important;
-    top: 62.2rem;
+    top: 60rem;
     left: 3rem;
   }
   .areas-content {
@@ -2490,6 +2491,14 @@ canvas {
   }
   .areas-right__item-img svg {
     width: 15.6rem;
+  }
+}
+@media (max-width: 20em){
+  canvas{
+    width: 70rem !important;
+    height: 69rem !important;
+    top: 62.7rem;
+    left: 3rem;
   }
 }
 .our-numbers__container {
