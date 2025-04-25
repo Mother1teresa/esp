@@ -77,8 +77,8 @@ document.body.appendChild(renderer.domElement);
 
 // Create a canvas to draw the SVG path
 const canvas = document.createElement("canvas");
-canvas.width = 2048; // Reduced to 2048 to support mobile devices
-canvas.height = 2048;
+canvas.width = 748; // Reduced to 2048 to support mobile devices
+canvas.height = 748;
 const context = canvas.getContext("2d");
 
 if (!context) {
@@ -102,8 +102,8 @@ if (!context) {
     // Calculate the desired size in canvas pixels
     const canvasWidthInRem = 43.7; // Sphere canvas width in rem
     const canvasHeightInRem = 43.2; // Sphere canvas height in rem
-    const pixelsPerRemX = 2048 / canvasWidthInRem; // Pixels per rem (X-axis) ≈ 46.86
-    const pixelsPerRemY = 2048 / canvasHeightInRem; // Pixels per rem (Y-axis) ≈ 47.41
+    const pixelsPerRemX = 748 / canvasWidthInRem; // Pixels per rem (X-axis) ≈ 46.86
+    const pixelsPerRemY = 748 / canvasHeightInRem; // Pixels per rem (Y-axis) ≈ 47.41
     const symbolWidthInPixels = 10 * pixelsPerRemX; // Symbol width in pixels ≈ 468.6
     const symbolHeightInPixels = 14.5 * pixelsPerRemY; // Symbol height in pixels ≈ 687.4
 
