@@ -1138,41 +1138,41 @@ html.modal {
   justify-content: space-between;
   margin: auto;
 }
-.e-line{
+.e-line {
   position: absolute;
   top: 4%;
   right: 47%;
   display: flex;
   align-items: flex-end;
-  gap: .5rem;
+  gap: 0.5rem;
   color: #274497;
 }
-.c-line{
+.c-line {
   position: absolute;
   top: 36%;
   right: 24%;
   display: flex;
   align-items: flex-end;
-  gap: .5rem;
+  gap: 0.5rem;
   color: #274497;
 }
-.n-lea{
+.n-lea {
   width: 15rem;
   height: 18rem;
 }
-.n-line{
+.n-line {
   position: absolute;
   bottom: 11%;
   right: 31.5%;
   display: flex;
   align-items: flex-end;
-  gap: .5rem;
+  gap: 0.5rem;
   color: #274497;
 }
-.n-line .e-title{
+.n-line .e-title {
   display: none;
 }
-.e-title{
+.e-title {
   font-family: "Cochineal";
   font-weight: 700;
   font-size: 26rem;
@@ -1181,14 +1181,14 @@ html.modal {
   letter-spacing: 0%;
   text-transform: uppercase;
 }
-.e-line__text{
+.e-line__text {
   font-family: "Cochineal";
   font-weight: 400;
   font-size: 10rem;
   line-height: 79%;
   letter-spacing: 0%;
 }
-.ball-bottom{
+.ball-bottom {
   position: absolute;
   bottom: -23rem;
   right: 0;
@@ -1196,7 +1196,7 @@ html.modal {
   width: 28rem;
   height: 52rem;
 }
-.ball-top{
+.ball-top {
   position: absolute;
   top: -10rem;
   right: 0;
@@ -1204,7 +1204,7 @@ html.modal {
   width: 10rem;
   height: 27rem;
 }
-.ball-left-bottom{
+.ball-left-bottom {
   position: absolute;
   bottom: -15rem;
   left: 0;
@@ -1212,7 +1212,7 @@ html.modal {
   height: 42rem;
   z-index: -3;
 }
-.ecn{
+.ecn {
   position: absolute;
   bottom: -15rem;
   right: 0rem;
@@ -1221,7 +1221,7 @@ html.modal {
   width: 53rem;
   height: 24%;
 }
-.mask-ecn{
+.mask-ecn {
   position: absolute;
   bottom: -20rem;
   right: 39rem;
@@ -1232,9 +1232,10 @@ html.modal {
 }
 
 /*  */
-.ball-split{
+.ball-split {
   width: 62rem;
   height: 62rem;
+  position: relative;
 }
 .ball-split:hover .split-container .top-half {
   transform: translateY(-16rem);
@@ -1242,15 +1243,15 @@ html.modal {
 .ball-split:hover .split-container .bottom-half {
   transform: translateY(19.8rem);
 }
-@media (min-width:120em) {
-.ball-split:hover .split-container .top-half {
-  transform: translateY(-8rem);
+@media (min-width: 120em) {
+  .ball-split:hover .split-container .top-half {
+    transform: translateY(-8rem);
+  }
+  .ball-split:hover .split-container .bottom-half {
+    transform: translateY(11rem);
+  }
 }
-.ball-split:hover .split-container .bottom-half {
-  transform: translateY(11rem);
-}
-}
-@media (max-width:94em) {
+@media (max-width: 94em) {
   .ball-split:hover .split-container .top-half {
     transform: translateY(-20rem);
   }
@@ -1267,16 +1268,13 @@ html.modal {
   }
 } */
 
-
 .rotating-target {
   transform-origin: 319.232px 334.463px;
   transition: transform 3s ease-in-out;
 }
 
-
-
 .ball-split.hovering .rotating-target {
-  animation: none; 
+  animation: none;
 }
 
 .top-half,
@@ -1333,20 +1331,21 @@ html.modal {
     transform: translateX(20rem);
   }
   70% {
-    fill-opacity: .25;
-    transform: translateX(0); 
+    fill-opacity: 0.25;
+    transform: translateX(0);
   }
   50% {
-    fill-opacity: .55;
-    transform: translateX(0); 
+    fill-opacity: 0.55;
+    transform: translateX(0);
   }
-  0%{
+  0% {
     fill-opacity: 0.25;
     transform: translateX(20rem);
   }
 }
 @keyframes pulseGlowLeft {
-  0%, 100% {
+  0%,
+  100% {
     fill-opacity: 0.25;
     transform: translateX(0);
   }
@@ -1356,18 +1355,20 @@ html.modal {
   }
 }
 @keyframes swayGlow {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0);
   }
   50% {
-    transform: translate(1rem, -1rem); /* вправо-вверх, можно изменить силу покачивания */
+    transform: translate(
+      1rem,
+      -1rem
+    ); /* вправо-вверх, можно изменить силу покачивания */
   }
 }
-.rub-item{
+.rub-item {
   font-size: 3rem;
 }
-
-
 
 .baner-content__right {
   display: grid;
@@ -1815,32 +1816,44 @@ html.modal {
     font-size: 4rem;
   }
 } */
+
+
+canvas {
+  width: 83.7rem !important;
+  height: 83.2rem !important;
+  position: absolute !important;
+  top: 22rem ;
+  left: 5rem;
+  z-index: -2;
+}
+
+
 @media (max-width: 48em) {
   .baner .container {
     width: auto;
     /* padding: 0; */
     margin-bottom: 20rem;
   }
-  .baner-content{
+  .baner-content {
     width: 100%;
     height: auto;
     display: grid;
     gap: 4rem;
   }
-  .baner-content__left{
+  .baner-content__left {
     display: grid;
     margin: auto;
   }
-  .baner-content__right{
+  .baner-content__right {
     width: 100%;
     gap: 4rem;
   }
-  .baner-content__right-title{
-    width: 100% !important; 
-    font-weight: 400 !important; 
+  .baner-content__right-title {
+    width: 100% !important;
+    font-weight: 400 !important;
     font-size: 5.6rem !important;
   }
-  .baner-content__right-text{
+  .baner-content__right-text {
     font-size: 3.6rem;
     width: 91%;
   }
@@ -1848,31 +1861,37 @@ html.modal {
     width: 28rem;
     height: 28rem;
   }
-  .ball-bottom,.ball-top,.ball-left-bottom{
+  .ball-bottom,
+  .ball-top,
+  .ball-left-bottom {
     display: none;
   }
-  .ecn,.mask-ecn{
+  .ecn,
+  .mask-ecn {
     display: none;
   }
-  .e-line,.c-line,.n-line{
+  .e-line,
+  .c-line,
+  .n-line {
     position: static;
     padding-left: 1.5rem;
     gap: 0;
   }
-  .e-title,.e-line__text{
+  .e-title,
+  .e-line__text {
     font-size: 12.8rem;
     /* font-weight: 400; */
     line-height: 90%;
   }
-  .n-lea{
+  .n-lea {
     width: 15%;
     height: 85%;
-    margin-bottom: .8rem;
+    margin-bottom: 0.8rem;
   }
-  .n-line .e-title{
+  .n-line .e-title {
     display: none;
   }
-  .ball-split{
+  .ball-split {
     width: 56rem;
     height: 66rem;
     margin: auto;
@@ -1884,11 +1903,12 @@ html.modal {
   .ball-split:hover .split-container .bottom-half {
     transform: translateY(16.4rem);
   }
-  .rub-item{
+  .rub-item {
     font-size: 4rem;
   }
 }
-@media (max-width:45em) {
+@media (max-width: 45em) {
+  
   .ball-split:hover .split-container .top-half {
     transform: translateY(-22rem);
   }
@@ -2357,6 +2377,12 @@ html.modal {
   }
 }
 @media (max-width: 48em) {
+  canvas{
+    width: 70rem !important;
+    height: 69rem !important;
+    top: 61.5rem;
+    left: 3rem;
+  }
   .areas-content {
     display: grid;
   }
