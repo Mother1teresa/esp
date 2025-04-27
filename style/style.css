@@ -1238,7 +1238,7 @@ html.modal {
   position: relative;
 }
 .ball-split:hover .split-container .top-half {
-  transform: translateY(-16rem);
+  transform: translateY(-14rem);
 }
 .ball-split:hover .split-container .bottom-half {
   transform: translateY(19.8rem);
@@ -1253,10 +1253,10 @@ html.modal {
 }
 @media (max-width: 94em) {
   .ball-split:hover .split-container .top-half {
-    transform: translateY(-20rem);
+    transform: translateY(-18rem);
   }
   .ball-split:hover .split-container .bottom-half {
-    transform: translateY(26.4rem);
+    transform: translateY(24.4rem);
   }
 }
 /* @media (min-width:64em) {
@@ -2379,10 +2379,10 @@ canvas {
 
 @media (max-width: 48em) {
   canvas{
-    width: 70rem !important;
+    width: 43rem !important;
     height: 69rem !important;
     top: 60rem;
-    left: 3rem;
+    left: 17rem;
   }
   .areas-content {
     display: grid;
@@ -2495,10 +2495,10 @@ canvas {
 }
 @media (max-width: 20em){
   canvas{
-    width: 70rem !important;
+    width: 43rem !important;
     height: 69rem !important;
     top: 62.7rem;
-    left: 3rem;
+    left: 17rem;
   }
 }
 .our-numbers__container {
