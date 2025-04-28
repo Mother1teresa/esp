@@ -66,9 +66,8 @@ $(document).ready(function () {
 //   angle = 0;
 // });
 
-// Create a canvas to draw the SVG path
 const canvas = document.createElement("canvas");
-canvas.width = 2048; // Resolution for clarity, within WebGL limits
+canvas.width = 2048; 
 canvas.height = 2048;
 const context = canvas.getContext("2d");
 
@@ -90,14 +89,12 @@ if (!context) {
         // Clear the canvas
         context.clearRect(0, 0, canvas.width, canvas.height);
 
-        const pixelsPerRem = 2048 / 43; // ≈ 47.63
-        const symbolWidthInPixels = 5 * pixelsPerRem; // ≈ 238.15 pixels
-        const symbolHeightInPixels = 14 * pixelsPerRem; // ≈ 666.82 pixels
+        const pixelsPerRem = 2048 / 43; 
+        const symbolWidthInPixels = 5 * pixelsPerRem; 
+        const symbolHeightInPixels = 14 * pixelsPerRem; 
 
         const x = (canvas.width - symbolWidthInPixels) / 2;
         const y = (canvas.height - symbolHeightInPixels) / 2;
-
-        // Redraw the scaled image
         context.drawImage(
           img,
           0,
@@ -124,8 +121,6 @@ if (!context) {
         } else {
           console.log("SVG successfully drawn onto canvas");
         }
-
-        // Create the scene, camera, and renderer
         const scene = new THREE.Scene();
         scene.background = null;
 
@@ -136,39 +131,34 @@ if (!context) {
           antialias: true,
           alpha: true,
         });
-
-        // Dynamically set renderer size based on viewport
         const maxWidthRem = 43.7;
         const maxHeightRem = 43.2;
-        const remToPixels = 16; // Assuming 1rem = 16px
+        const remToPixels = 16; 
         const maxWidthPx = maxWidthRem * remToPixels;
         const maxHeightPx = maxHeightRem * remToPixels;
         const viewportWidth = Math.min(window.innerWidth, maxWidthPx);
         const viewportHeight = Math.min(window.innerHeight, maxHeightPx);
         renderer.setSize(viewportWidth, viewportHeight);
 
-        // Update camera aspect ratio
         camera.aspect = viewportWidth / viewportHeight;
         camera.updateProjectionMatrix();
 
         document.body.appendChild(renderer.domElement);
 
-        // Variables for the sphere
         let sphere, symbolSphere;
 
         const texture = new THREE.CanvasTexture(canvas);
         texture.needsUpdate = true;
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
         texture.repeat.set(1, 1);
-        texture.minFilter = THREE.LinearFilter; // LinearFilter for smoothness
-        texture.magFilter = THREE.LinearFilter; // LinearFilter for smoothness
+        texture.minFilter = THREE.LinearFilter; 
+        texture.magFilter = THREE.LinearFilter; 
 
         const shiftInRem = 23;
         const shiftInPixels = shiftInRem * pixelsPerRem;
         const shiftInTextureUnits = shiftInPixels / 2048;
         texture.offset.set(0.03 - shiftInTextureUnits, 0);
 
-        // Sphere with base material
         const geometry = new THREE.SphereGeometry(15, 32, 32);
         const baseMaterial = new THREE.MeshPhongMaterial({
           color: 0x072c65,
@@ -179,7 +169,6 @@ if (!context) {
         sphere = new THREE.Mesh(geometry, baseMaterial);
         scene.add(sphere);
 
-        // Sphere with alpha map (texture)
         const symbolMaterial = new THREE.MeshPhongMaterial({
           color: 0xffffff,
           alphaMap: texture,
@@ -200,7 +189,6 @@ if (!context) {
         const ambientLight = new THREE.AmbientLight(0xffffff);
         scene.add(ambientLight);
 
-        // Set up rotation on hover (for desktop) and touch (for mobile)
         const raycaster = new THREE.Raycaster();
         const mouse = new THREE.Vector2();
         let isRotating = false;
@@ -220,12 +208,10 @@ if (!context) {
           }
         }
 
-        // Mouse event for desktop
         function onMouseMove(event) {
           updateMousePosition(event.clientX, event.clientY);
         }
 
-        // Touch events for mobile
         function onTouchMove(event) {
           event.preventDefault();
           const touch = event.touches[0];
@@ -242,7 +228,6 @@ if (!context) {
         window.addEventListener("touchstart", onTouchStart, false);
         window.addEventListener("touchmove", onTouchMove, false);
 
-        // Animation loop
         function animate() {
           requestAnimationFrame(animate);
 
