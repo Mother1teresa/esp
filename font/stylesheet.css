@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'Gilroy';
+    src: url('Gilroy-Regular.ttf');
+    src: local('Gilroy Regular'), local('Gilroy-Regular'),
+    url('gilroy-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy Medium';
+    src: url('gilroy-medium.ttf');
+    src: local('Gilroy Medium'), local('Gilroy-Medium'),
+    url('gilroy-medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Gilroy Extrabold';
+    src: url('Gilroy-Extrabold.ttf');
+    src: local('Gilroy Extrabold'), local('Gilroy-Extrabold'),
+    url('Gilroy-Extrabold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy Black';
+    src: url('Gilroy-Black.ttf');
+    src: local('Gilroy Black'), local('Gilroy-Black'),
+    url('Gilroy-Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cochineal-Italic';
+    src: url('Cochineal-Italic.otf');
+    src: local('Cochineal Italic'), local('Cochineal-Italic'),
+    url('Cochineal-Italic.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cochineal';
+    src: url('Cochineal-Roman.otf');
+    src: local('Cochineal Roman'), local('Cochineal-Roman'),
+    url('Cochineal-Roman.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avanti';
+    src: url('Avanti.ttf');
+    src: local('Avanti'), local('Avanti'),
+    url('Avanti.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

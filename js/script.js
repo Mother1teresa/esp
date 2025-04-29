@@ -241,3 +241,39 @@ $(document).ready(function () {
 //     });
 // }
 // });
+
+  // Time-based rotation
+  let lastTime = performance.now();
+  const baseRotationSpeed = 1.5; // Slower when front is facing (radians per second)
+  const maxRotationSpeed = 2.0; // Much faster when back is facing (radians per second)
+function animate() {
+  requestAnimationFrame(animate);
+
+  // Calculate deltaTime
+  const currentTime = performance.now();
+  const deltaTime = (currentTime - lastTime) / 1000; // Convert to seconds
+  lastTime = currentTime;
+
+  if (isRotating) {
+      // Normalize rotation.y to [0, 2π) for consistent comparison
+      const normalizedRotation = sphere.rotation.y % (2 * Math.PI);
+      // Calculate how close the sphere is to facing backward (rotation.y ≈ 3π/2)
+      const backFacingAngle = 3.5 * Math.PI / 2;
+      const angleDiff = Math.abs(((normalizedRotation - backFacingAngle) + 2 * Math.PI) % (2 * Math.PI) - Math.PI);
+      // Apply a sharper speed curve (using a power function) to focus the speed-up
+      const speedFactor = Math.pow(1 - (angleDiff / Math.PI), 2); // Square the factor for a sharper curve
+      const rotationSpeed = baseRotationSpeed + (maxRotationSpeed - baseRotationSpeed) * speedFactor;
+
+      // Apply time-based rotation
+      sphere.rotation.y += rotationSpeed * deltaTime;
+      symbolSphere.rotation.y += rotationSpeed * deltaTime;
+      targetRotation = sphere.rotation.y;
+  } else {
+      // Smooth lerping back to initial rotation
+      const lerpSpeed = 0.1;
+      sphere.rotation.y += (targetRotation - sphere.rotation.y) * lerpSpeed * deltaTime * 60;
+      symbolSphere.rotation.y += (targetRotation - symbolSphere.rotation.y) * lerpSpeed * deltaTime * 60;
+  }
+
+  renderer.render(scene, camera);
+}

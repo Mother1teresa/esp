@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style/style.css">
+   <link rel="stylesheet" href="font\stylesheet.css">
 </head>
 <body>
    <header class="header">
@@ -836,8 +837,6 @@
                   URL.revokeObjectURL(url);
 
                   context.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-                  // Clear the canvas
                   context.clearRect(0, 0, canvas.width, canvas.height);
 
                   const pixelsPerRem = 2048 / 43; 
@@ -857,15 +856,8 @@
                      symbolWidthInPixels,
                      symbolHeightInPixels
                   );
-                  const newImageData = context.getImageData(
-                     0,
-                     0,
-                     canvas.width,
-                     canvas.height
-                  );
-                  const hasNonTransparentPixels = Array.from(newImageData.data).some(
-                     (value) => value !== 0
-                  );
+                  const newImageData = context.getImageData(0, 0, canvas.width, canvas.height);
+                  const hasNonTransparentPixels = Array.from(newImageData.data).some((value) => value !== 0);
 
                   if (!hasNonTransparentPixels) {
                      console.error("Symbol drawing failed: Canvas appears to be empty");
@@ -882,6 +874,7 @@
                      antialias: true,
                      alpha: true,
                   });
+                  renderer.setPixelRatio(window.devicePixelRatio);
                   const maxWidthRem = 43.7;
                   const maxHeightRem = 43.2;
                   const remToPixels = 16; 
@@ -902,15 +895,16 @@
                   texture.needsUpdate = true;
                   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
                   texture.repeat.set(1, 1);
-                  texture.minFilter = THREE.LinearFilter; 
+                  texture.minFilter = THREE.LinearMipmapLinearFilter; 
                   texture.magFilter = THREE.LinearFilter; 
+                  texture.generateMipmaps = true;
 
                   const shiftInRem = 23;
                   const shiftInPixels = shiftInRem * pixelsPerRem;
                   const shiftInTextureUnits = shiftInPixels / 2048;
                   texture.offset.set(0.03 - shiftInTextureUnits, 0);
 
-                  const geometry = new THREE.SphereGeometry(15, 32, 32);
+                  const geometry = new THREE.SphereGeometry(15, 64, 64);
                   const baseMaterial = new THREE.MeshPhongMaterial({
                      color: 0x072c65,
                      shininess: 50,
@@ -930,7 +924,7 @@
                      side: THREE.FrontSide,
                   });
 
-                  const symbolGeometry = new THREE.SphereGeometry(15.01, 32, 32);
+                  const symbolGeometry = new THREE.SphereGeometry(15.01, 64, 64);
                   symbolSphere = new THREE.Mesh(symbolGeometry, symbolMaterial);
                   scene.add(symbolSphere);
 
@@ -979,27 +973,34 @@
                   window.addEventListener("touchstart", onTouchStart, false);
                   window.addEventListener("touchmove", onTouchMove, false);
 
+                  let lastTime = performance.now();
+                  const baseRotationSpeed = 1.5; 
+                  const maxRotationSpeed = 2.0; 
+
                   function animate() {
-                     requestAnimationFrame(animate);
+                  requestAnimationFrame(animate);
 
-                     if (isRotating) {
-                        sphere.rotation.y += 0.01;
-                        symbolSphere.rotation.y += 0.01;
+                  const currentTime = performance.now();
+                  const deltaTime = (currentTime - lastTime) / 1000; 
+                  lastTime = currentTime;
+
+                  if (isRotating) {
+                        const normalizedRotation = sphere.rotation.y % (2 * Math.PI);
+                        const backFacingAngle = 3.5 * Math.PI / 2;
+                        const angleDiff = Math.abs(((normalizedRotation - backFacingAngle) + 2 * Math.PI) % (2 * Math.PI) - Math.PI);
+                        const speedFactor = Math.pow(1 - (angleDiff / Math.PI), 2);
+                        const rotationSpeed = baseRotationSpeed + (maxRotationSpeed - baseRotationSpeed) * speedFactor;
+
+                        sphere.rotation.y += rotationSpeed * deltaTime;
+                        symbolSphere.rotation.y += rotationSpeed * deltaTime;
                         targetRotation = sphere.rotation.y;
-                     } else {
-                        const lerpSpeed = 0.05;
-                        sphere.rotation.y +=
-                        (targetRotation - sphere.rotation.y) * lerpSpeed;
-                        symbolSphere.rotation.y +=
-                        (targetRotation - symbolSphere.rotation.y) * lerpSpeed;
+                  } else {
+                        const lerpSpeed = 0.1;
+                        sphere.rotation.y += (targetRotation - sphere.rotation.y) * lerpSpeed * deltaTime * 40;
+                        symbolSphere.rotation.y += (targetRotation - symbolSphere.rotation.y) * lerpSpeed * deltaTime * 40;
+                  }
 
-                        if (Math.abs(sphere.rotation.y - targetRotation) < 0.01) {
-                        sphere.rotation.y = targetRotation;
-                        symbolSphere.rotation.y = targetRotation;
-                        }
-                     }
-
-                     renderer.render(scene, camera);
+                  renderer.render(scene, camera);
                   }
 
                   animate();
@@ -1021,7 +1022,7 @@
                   console.error("Error loading SVG file:", error);
                });
             }
-        });
+        }); 
       </script>
 </body>
 </html>
