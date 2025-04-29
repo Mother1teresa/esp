@@ -1913,7 +1913,7 @@ canvas {
     transform: translateY(-22rem);
   }
   .ball-split:hover .split-container .bottom-half {
-    transform: translateY(30.4rem);
+    transform: translateY(26.4rem);
   }
 }
 .areas .container {

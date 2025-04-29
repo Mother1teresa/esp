@@ -867,7 +867,7 @@
                
                   scene.background = null;
 
-                  const camera = new THREE.PerspectiveCamera(75, 43.7 / 43.2, 0.1, 1000);
+                  const camera = new THREE.PerspectiveCamera(75, 40 / 40, 0.1, 1000);
                   camera.position.z = 40;
 
                   const renderer = new THREE.WebGLRenderer({
@@ -875,8 +875,8 @@
                      alpha: true,
                   });
                   renderer.setPixelRatio(window.devicePixelRatio);
-                  const maxWidthRem = 43.7;
-                  const maxHeightRem = 43.2;
+                  const maxWidthRem = 40;
+                  const maxHeightRem = 40;
                   const remToPixels = 16; 
                   const maxWidthPx = maxWidthRem * remToPixels;
                   const maxHeightPx = maxHeightRem * remToPixels;
