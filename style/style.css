@@ -2894,6 +2894,10 @@ canvas {
 }
 
 @media (max-width: 48em) {
+  .our-numbers__item:nth-child(2) svg {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
   .about-us .top-title {
     margin-bottom: 8rem;
   }
