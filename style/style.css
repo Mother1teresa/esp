@@ -2722,7 +2722,7 @@ canvas {
   }
   .our-numbers__item-number {
     position: absolute;
-    font-size: 8rem;
+    font-size: 6.5rem;
     line-height: 100%;
     letter-spacing: 2.4px;
     right: 0;
