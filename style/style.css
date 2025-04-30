@@ -2599,6 +2599,7 @@ canvas {
   top: 49.9%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
+  color: #274497;
 }
 .our-numbers__item-number::after {
   content: "";
