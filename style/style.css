@@ -2515,16 +2515,20 @@ canvas {
   position: relative;
 }
 .our-numbers__item:nth-child(1) img {
-  -webkit-transform: scale(0.9);
-  transform: scale(0.9);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 .our-numbers__item:nth-child(1) svg {
-  -webkit-transform: scale(0.9);
-  transform: scale(0.9);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.14);
 }
 .our-numbers__item:nth-child(2) img {
   -webkit-transform: scale(1);
   transform: scale(1);
+}
+.our-numbers__item:nth-child(2) svg {
+  -webkit-transform: scale(1.08);
+  transform: scale(1.08);
 }
 .our-numbers__item:nth-child(3) img {
   -webkit-transform: scale(1.1);
