@@ -1919,6 +1919,15 @@ canvas {
 .areas .container {
   display: -webkit-box;
   display: -ms-flexbox;
+  /* display: grid; */
+  gap: 16.5rem;
+}
+.areas-rom{
+  position: relative;
+}
+.areas-rom .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: grid;
   gap: 16.5rem;
 }
@@ -1934,9 +1943,13 @@ canvas {
 .areas-left .top-title {
   margin-bottom: 3.2rem;
 }
+
 .areas-left__animation {
   position: absolute;
   bottom: 7.6rem;
+}
+.areas .areas-left__animation {
+  bottom: 17.6rem;
 }
 .areas-left__animation * > div {
   border: 1px solid #c0c0c0;
@@ -2071,6 +2084,9 @@ canvas {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column; */
+  
+}
+.areas-right_rom{
   display: flex;
   flex-direction: row;
   gap: 5rem;
